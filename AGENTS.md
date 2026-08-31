@@ -1,4 +1,5 @@
 ## How the crew is formed
-The roster is invented at runtime and **each worker is dispatched as its own separate session**,
-concurrently (not as in-process sub-agents). This mirrors real Neuron: separate sessions, own
-identity + isolation per worker, budget sliced across the concurrent workers.
+Two native worker sub-agents live in `agents/`: **`implementer`** and **`test-author`**. The
+orchestrator composes a roster then dispatches BOTH concurrently (both `Agent` tool calls in one
+turn), exactly mirroring neuron's `asyncio.gather` over its workers — one orchestrator, parallel
+worker sub-agents.
