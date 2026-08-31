@@ -1,5 +1,5 @@
 ## How the crew is formed
-Two native worker sub-agents live in `agents/`: **`implementer`** and **`test-author`**. The
-orchestrator composes a roster then dispatches BOTH concurrently (both `Agent` tool calls in one
-turn), exactly mirroring neuron's `asyncio.gather` over its workers — one orchestrator, parallel
-worker sub-agents.
+The orchestrator composes the roster; **each worker is then dispatched by the coordinator as its
+OWN separate session** (the `neuron-worker` agent), and the workers run **concurrently** — 1:1
+with neuron, which dispatches each worker as its own `ClaudeSDKClient` session under `asyncio.gather`.
+There are no in-process sub-agents here.
