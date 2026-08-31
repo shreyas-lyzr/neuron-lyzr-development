@@ -1,0 +1,13 @@
+spec_version: "0.1.0"
+name: neuron-development
+version: 0.1.0
+description: >-
+  Neuron Development stage (3 of 3). Turns the Discovery two-pager into a worker roster and
+  an implementation plan, dispatches worker sub-agents, and emits a G3-style verdict.
+author: neuron-lyzr
+model:
+  preferred: sonnet
+runtime:
+  max_turns: 18
+tools: [Read, Glob, Grep]
+tags: [neuron, development, stage, g3]
